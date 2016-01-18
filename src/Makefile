@@ -3,7 +3,7 @@ CC=gcc
 CCX=i686-w64-mingw32-gcc
 CFLAGS=-Wall -Wextra
 CLIBS=-I/usr/include/SDL2 -D_REENTRANT -L/usr/lib/i386-linux-gnu -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
-ELFNAME=tictactoe
+ELFNAME=tictactoe.elf
 
 all: compile
 
