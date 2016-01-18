@@ -1,0 +1,3 @@
+# ignore documentation files and graphic data
+doc/
+res/
