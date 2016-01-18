@@ -155,29 +155,6 @@ int blit_player(struct s_context *cxt, int player, int posx, int posy)
 	return 0;
 }
 
-int victory(struct s_context *cxt, int result)
-{
-	SDL_Rect pos;
-
-	// Clean main surface
-	cxt->screen = SDL_GetWindowSurface(cxt->win);
-	SDL_FillRect(cxt->screen, NULL, SDL_MapRGB(cxt->screen->format, 0x90, 0xEE, 0x90));
-
-	pos.x = 200;
-	pos.y = 340;
-
-	if(result == 1)
-		blit_text(cxt, 48, "The X won!", "res/f.ttf", pos);
-
-	else if(result == -1)
-		blit_text(cxt, 48, "The O won!", "res/f.ttf", pos);
-
-	else if(result == 2)
-		blit_text(cxt, 48, "Draw!", "res/f.ttf", pos);
-
-	return 0;
-}
-
 int blit_text(struct s_context *cxt, int size, char *text, char *fpath, SDL_Rect pos)
 {
 	SDL_Surface *tmp;

@@ -18,8 +18,6 @@ int show(struct s_context cxt);
 
 int blit_player(struct s_context *cxt, int player, int posx, int posy);
 
-int victory(struct s_context *cxt, int result);
-
 int blit_text(struct s_context *cxt, int size, char *text, char *fpath, SDL_Rect pos);
 
 int clear_screen(struct s_context *cxt);
