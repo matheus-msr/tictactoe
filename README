@@ -1,0 +1,6 @@
+This tic tac toe game is a simple project I made for learning about SDL2 and sockets on Linux
+
+Game modes:
+	-Online multiplayer (max. 2 players)
+	-Offline multiplayer (max. 2 players)
+	-Single player
