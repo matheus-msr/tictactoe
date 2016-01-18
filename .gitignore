@@ -1,3 +1,6 @@
 # ignore documentation files and graphic data
 doc/
 res/
+
+# ignore executable files
+*.elf
