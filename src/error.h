@@ -5,8 +5,8 @@
 #define NETERR -2
 #define SNDERR -3
 
-void log_error(char *type, char *function, const char *sdlerror, int fatal);
+void log_error(const char *type, const char *function, const char *sdlerror, const int fatal);
 
-void log_net_error(char *type, int fatal);
+void log_net_error(const char *type, const int fatal);
 
 #endif

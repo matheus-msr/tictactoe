@@ -8,12 +8,12 @@ struct s_socket {
 
 int host_connection(struct s_socket * connection);
 
-int connect_to_host(char * address, struct s_socket * connection);
+int connect_to_host(const char * address, struct s_socket * connection);
 
-int send_move(char * move, struct s_socket connection);
+int send_move(const char * move, const struct s_socket connection);
 
-int receive_move(char * move, struct s_socket connection);
+int receive_move(char * move, const struct s_socket connection);
 
-int close_connection(struct s_socket connection);
+int close_connection(const struct s_socket connection);
 
 #endif

@@ -8,24 +8,24 @@ struct s_context
 	SDL_Surface *screen;
 };
 
-int blit_button(struct s_context *cxt, char *path, SDL_Rect pos, char *text, char *fpath);
+int blit_button(struct s_context * cxt, const char *path, SDL_Rect pos, const char * text, const char *fpath);
 
-int close_app(struct s_context *ctx);
+int close_app(struct s_context * ctx);
 
-int create_context(struct s_context *cxt, char *title, int sizex, int sizey);
+int create_context(struct s_context * cxt, const char *title, const int sizex, const int sizey);
 
 int show(struct s_context cxt);
 
-int blit_player(struct s_context *cxt, int player, int posx, int posy);
+int blit_player(struct s_context * cxt, const int player, const int posx, const int posy);
 
-int blit_text(struct s_context *cxt, int size, char *text, char *fpath, SDL_Rect pos);
+int blit_text(struct s_context * cxt, const int size, const char * text, const char * fpath, SDL_Rect pos);
 
 int clear_screen(struct s_context *cxt);
 
-int put_cursor(struct s_context *cxt, int player);
+int put_cursor(struct s_context *cxt, const int player);
 
-int blit_element(struct s_context *cxt, char * path, SDL_Rect pos);
+int blit_element(struct s_context *cxt, const char * path, SDL_Rect pos);
 
-int show_error_window(char * msg);
+int show_error_window(const char * msg);
 
 #endif

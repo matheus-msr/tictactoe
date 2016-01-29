@@ -56,7 +56,7 @@ int wait_unpress(SDL_Event *ev)
 	return 0;
 }
 
-int get_text(struct s_context *cxt, char * msg, char * input_text)
+int get_text(struct s_context *cxt, const char * msg, char * input_text)
 {
 	int got_text = 0;
 

@@ -12,6 +12,6 @@ int get_mark_position(SDL_Event ev, int *posx, int *posy, int *gmx, int *gmy);
 
 int wait_unpress(SDL_Event * ev);
 
-int get_text(struct s_context *cxt, char * msg, char * in_text);
+int get_text(struct s_context *cxt, const char * msg, char * in_text);
 
 #endif

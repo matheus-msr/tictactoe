@@ -10,7 +10,7 @@
 #include "input.h"
 
 // Blit a button on the main screen surface
-int blit_button(struct s_context *cxt, char *path, SDL_Rect pos, char text[32], char *fpath)
+int blit_button(struct s_context *cxt, const char *path, SDL_Rect pos, const char * text, const char *fpath)
 {
 	int t = strlen(text);
 
@@ -73,7 +73,7 @@ int close_app(struct s_context *ctx)
 	return 0;
 }
 
-int create_context(struct s_context *cxt, char *title, int sizex, int sizey)
+int create_context(struct s_context *cxt, const char *title, const int sizex, const int sizey)
 {
 	if(SDL_Init(SDL_INIT_EVERYTHING))
 	{
@@ -123,7 +123,7 @@ int show(struct s_context cxt)
 	return 0;
 }
 
-int blit_player(struct s_context *cxt, int player, int posx, int posy)
+int blit_player(struct s_context *cxt, const int player, const int posx, const int posy)
 {
 	SDL_Rect position;
 	SDL_Surface *mark;
@@ -155,7 +155,7 @@ int blit_player(struct s_context *cxt, int player, int posx, int posy)
 	return 0;
 }
 
-int blit_text(struct s_context *cxt, int size, char *text, char *fpath, SDL_Rect pos)
+int blit_text(struct s_context * cxt, const int size, const char *text, const char *fpath, SDL_Rect pos)
 {
 	SDL_Surface *tmp;
 
@@ -189,7 +189,7 @@ int blit_text(struct s_context *cxt, int size, char *text, char *fpath, SDL_Rect
 	return 0;
 }
 
-int clear_screen(struct s_context *cxt)
+int clear_screen(struct s_context * cxt)
 {
 	// Clean main surface
 	cxt->screen = SDL_GetWindowSurface(cxt->win);
@@ -198,7 +198,7 @@ int clear_screen(struct s_context *cxt)
 	return 0;
 }
 
-int put_cursor(struct s_context *cxt, int player)
+int put_cursor(struct s_context * cxt, const int player)
 {
 	int posx, posy;
 
@@ -236,7 +236,7 @@ int put_cursor(struct s_context *cxt, int player)
 	return 0;
 }
 
-int blit_element(struct s_context *cxt, char *path, SDL_Rect pos)
+int blit_element(struct s_context * cxt, const char * path, SDL_Rect pos)
 {
 	SDL_Surface *element = IMG_Load(path);
 
@@ -253,7 +253,7 @@ int blit_element(struct s_context *cxt, char *path, SDL_Rect pos)
 	return 0;
 }
 
-int show_error_window(char * msg)
+int show_error_window(const char * msg)
 {
 	SDL_Event errev;
 

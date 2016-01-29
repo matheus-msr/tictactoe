@@ -57,7 +57,7 @@ int host_connection(struct s_socket * connection)
 	return 0;
 }
 
-int connect_to_host(char * address, struct s_socket * connection)
+int connect_to_host(const char * address, struct s_socket * connection)
 {
 	struct sockaddr_in host;
 
@@ -91,7 +91,7 @@ int connect_to_host(char * address, struct s_socket * connection)
 	return 0;
 }
 
-int send_move(char * move, struct s_socket connection)
+int send_move(const char * move, const struct s_socket connection)
 {
 	if(write(connection.fd, move, strlen(move)) < 0)
 		log_net_error("Coudn't send move, check your connection", 0);
@@ -99,7 +99,7 @@ int send_move(char * move, struct s_socket connection)
 	return 0;
 }
 
-int receive_move(char * move, struct s_socket connection)
+int receive_move(char * move, const struct s_socket connection)
 {
 	move[1] = '\0';
 
@@ -112,7 +112,7 @@ int receive_move(char * move, struct s_socket connection)
 	return 0;
 }
 
-int close_connection(struct s_socket connection)
+int close_connection(const struct s_socket connection)
 {
 	close(connection.fd);
 
