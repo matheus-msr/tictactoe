@@ -19,9 +19,6 @@ int host_connection(struct s_socket * connection)
 	struct sockaddr_in host;
 	static struct sockaddr_in client;
 
-	const char * hssent = {"HANDSHAKE"};
-	char hsreceived[32] = {""};
-
 	host.sin_family = AF_INET;
 	host.sin_port = htons(PORT);
 	host.sin_addr.s_addr = INADDR_ANY;
@@ -44,25 +41,12 @@ int host_connection(struct s_socket * connection)
 		return -1;
 	}
 
-	// test if the connection is ok by an echo-ing msg
-	write(connection->fd, hssent, strlen(hssent));
-	read(connection->fd, hsreceived, strlen(hssent));
-
-	if(!strcmp(hssent, hsreceived))
-	{
-		log_net_error("Handshake failed", 1);
-		return -1;
-	}
-
 	return 0;
 }
 
 int connect_to_host(const char * address, struct s_socket * connection)
 {
 	struct sockaddr_in host;
-
-	const char * hssent = {"HANDSHAKE"};
-	char hsreceived[32] = {""};
 
 	host.sin_family = AF_INET;
 	host.sin_port = htons(PORT);
@@ -77,17 +61,6 @@ int connect_to_host(const char * address, struct s_socket * connection)
 		return -1;
 	}
 
-	// test if the connection is ok by an echo-ing msg
-	read(connection->fd, hsreceived, strlen(hssent));
-
-	if(!strcmp(hssent, hsreceived))
-	{
-		log_net_error("Handshake failed", 1);
-		return -1;
-	}
-
-	write(connection->fd, hssent, strlen(hssent));
-
 	return 0;
 }
 
@@ -101,7 +74,7 @@ int send_move(const char * move, const struct s_socket connection)
 
 int receive_move(char * move, const struct s_socket connection)
 {
-	move[1] = '\0';
+//	move = {""};
 
 	if(read(connection.fd, move, 32) < 0)
 	{
