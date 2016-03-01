@@ -28,7 +28,7 @@ int host_connection(struct s_socket * connection)
 	{
 		log_net_error("Coudn't bind to port and wait for connections, try checking your firewall permissions", 1);
 		close(init_sock_fd);
-		return -1;
+		return NETERR;
 	}
 
 	// accept connection
@@ -38,7 +38,7 @@ int host_connection(struct s_socket * connection)
 	{
 		log_net_error("coudn't accept connection", 1);
 		close(init_sock_fd);
-		return -1;
+		return NETERR;
 	}
 
 	return 0;
@@ -58,7 +58,7 @@ int connect_to_host(const char * address, struct s_socket * connection)
 	{
 		log_net_error("Coudn't connect to host, check host's address and/or firewall permissions", 1);
 		close_connection(*connection);
-		return -1;
+		return NETERR;
 	}
 
 	return 0;
@@ -74,12 +74,10 @@ int send_move(const char * move, const struct s_socket connection)
 
 int receive_move(char * move, const struct s_socket connection)
 {
-//	move = {""};
-
 	if(read(connection.fd, move, 32) < 0)
 	{
 		log_net_error("Coudn't receive move, check your connection", 0);
-		return -1;
+		return NETERR;
 	}
 
 	return 0;

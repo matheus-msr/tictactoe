@@ -4,6 +4,7 @@
 #define GRFERR -1
 #define NETERR -2
 #define SNDERR -3
+#define INPERR -4
 
 void log_error(const char *type, const char *function, const char *sdlerror, const int fatal);
 

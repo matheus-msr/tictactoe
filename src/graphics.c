@@ -40,7 +40,7 @@ int blit_button(struct s_context *cxt, const char *path, SDL_Rect pos, const cha
 	if(tmp == NULL)
 	{
 		log_error("Could not put text on button surface", "blit_button", TTF_GetError(), 0);
-		return -1;
+		return GRFERR;
 	}
 
 	// The text must be less than 13 characters long
@@ -141,12 +141,12 @@ int blit_player(struct s_context *cxt, const int player, const int posx, const i
 		mark = IMG_Load("res/o_100x100.png");
 
 	else
-		return -1; // the player parameter is invalid
+		return INPERR; // the player parameter is invalid
 
 	if(mark == NULL)
 	{
 		log_error("Coudn't load image file as surface", "blit_player", IMG_GetError(), 0);
-		return -2; // Coudn't load resource
+		return GRFERR; // Coudn't load resource
 	}
 
 	SDL_BlitSurface(mark, NULL, cxt->screen, &position);
@@ -177,7 +177,7 @@ int blit_text(struct s_context * cxt, const int size, const char *text, const ch
 	if(tmp == NULL)
 	{
 		log_error("Could not put text on temporary surface", "blit_text", TTF_GetError(), 0);
-		return -3; // Coudn't render
+		return GRFERR; // Coudn't render
 	}
 
 	SDL_BlitSurface(tmp, NULL, cxt->screen, &pos);
@@ -209,7 +209,7 @@ int put_cursor(struct s_context * cxt, const int player)
 	if(player_surf == NULL)
 	{
 		log_error("Coudn't load image file as surface", "blit_cursor", IMG_GetError(), 0);
-		return -1;
+		return GRFERR;
 	}
 
 	SDL_GetMouseState(&posx, &posy);
@@ -242,7 +242,7 @@ int blit_element(struct s_context * cxt, const char * path, SDL_Rect pos)
 	if(element == NULL)
 	{
 		log_error("Coudn't load image file as surface", "blit_element", IMG_GetError(), 0);
-		return -2; // Coudn't load resource
+		return GRFERR; // Coudn't load resource
 	}
 
 	SDL_BlitSurface(element, NULL, cxt->screen, &pos);
